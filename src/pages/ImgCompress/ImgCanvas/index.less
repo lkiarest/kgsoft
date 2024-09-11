@@ -1,0 +1,44 @@
+.img-canvas {
+  width: 800px;
+  text-align: center;
+  padding-top: 24px;
+  display: flex;
+  flex-direction: row;
+
+  .img-view {
+    flex: 1;
+    margin-left: 8px;
+    font-size: 0;
+    text-align: left;
+
+    img {
+      max-width: 100%;
+    }
+  }
+
+  .img-size {
+    margin-bottom: 4px;
+    font-size: 14px;
+    text-align: right;
+    font-weight: 600;
+  }
+
+  .img-cancel {
+    margin-top: 8px;
+    color: #666;
+    cursor: pointer;
+    font-size: 14px;
+    border: 1px solid #999;
+
+    &:hover {
+      color: #333;
+    }
+  }
+
+  .img-process {
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

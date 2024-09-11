@@ -1,0 +1,46 @@
+.img-compress {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .image-upload-wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-top: 12px;
+
+    &.hide {
+      display: none;
+    }
+  }
+
+  .image-upload {
+    width: 400px;
+    height: 40px;
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+  }
+  
+  .image-upload-label {
+    display: block;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    line-height: 40px;
+    text-align: center;
+    color: #888;
+    transition: color 0.3s ease;
+    cursor: pointer;
+  }
+  
+  .image-upload-label:hover {
+    color: #333;
+  }
+}
