@@ -24,19 +24,19 @@ jobs:
         run: npm ci
 
       - name: Build project
-        working-directory: ./main-site
+        working-directory: ./
         run: npm run build
 
       - name: Create a release archive
         run: |
-          cd main-site/dist
-          zip -r ${{ github.workspace }}/main-site-build.zip .
+          cd ./dist
+          zip -r ${{ github.workspace }}/kgsoft-build.zip .
 
       - name: Upload release asset
         uses: svenstaro/upload-release-action@v2
         with:
           repo_token: ${{ secrets.GITHUB_TOKEN }}
-          file: ${{ github.workspace }}/main-site-build.zip
+          file: ${{ github.workspace }}/kgsoft-build.zip
           tag_name: ${{ github.ref }}
           overwrite: true
           body: "Automated release of the frontend build."
