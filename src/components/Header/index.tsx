@@ -11,6 +11,9 @@ export function Header() {
 				<a href="/" class={url == '/' && 'active'}>
 					图片压缩
 				</a>
+				<a href="/idcard" class={url == '/idcard' && 'active'}>
+					证件照生成
+				</a>
 				<a href="/about" class={url == '/about' && 'active'}>
 					关于
 				</a>

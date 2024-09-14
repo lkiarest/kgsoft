@@ -4,6 +4,7 @@ import { Header } from './components/Header';
 import { About } from './pages/About';
 import { ImgCompress } from './pages/ImgCompress';
 import { NotFound } from './pages/_404.jsx';
+import { IdCard } from './pages/IdCard';
 import './styles/index.less';
 
 export function App() {
@@ -13,6 +14,7 @@ export function App() {
       <main>
         <Router>
           <Route path="/" component={ImgCompress} />
+          <Route path="/idcard" component={IdCard} />
           <Route path="/about" component={About} />
           <Route default component={NotFound} />
         </Router>
