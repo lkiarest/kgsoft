@@ -1,0 +1,44 @@
+name: Build and Release Frontend
+
+on:
+  push:
+    tags:
+      - 'v*' # 触发器将匹配任何以 'v' 开头的标签
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18' # 替换为你项目所需的 Node.js 版本
+          cache: 'npm'
+          
+      - name: Install dependencies
+        working-directory: ./main-site
+        run: npm ci
+
+      - name: Build project
+        working-directory: ./main-site
+        run: npm run build
+
+      - name: Create a release archive
+        run: |
+          cd main-site/dist
+          zip -r ${{ github.workspace }}/main-site-build.zip .
+
+      - name: Upload release asset
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: ${{ github.workspace }}/main-site-build.zip
+          tag_name: ${{ github.ref }}
+          overwrite: true
+          body: "Automated release of the frontend build."
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
