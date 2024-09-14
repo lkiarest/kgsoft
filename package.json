@@ -10,7 +10,8 @@
 		"less": "^4.2.0",
 		"preact": "^10.22.1",
 		"preact-iso": "^2.6.3",
-		"preact-render-to-string": "^6.5.10"
+		"preact-render-to-string": "^6.5.10",
+		"vite-plugin-top-level-await": "^1.4.4"
 	},
 	"devDependencies": {
 		"@preact/preset-vite": "^2.9.0",
