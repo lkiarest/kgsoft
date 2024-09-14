@@ -20,16 +20,14 @@ jobs:
           cache: 'npm'
           
       - name: Install dependencies
-        working-directory: ./main-site
         run: npm ci
 
       - name: Build project
-        working-directory: ./
         run: npm run build
 
       - name: Create a release archive
         run: |
-          cd ./dist
+          cd dist
           zip -r ${{ github.workspace }}/kgsoft-build.zip .
 
       - name: Upload release asset
