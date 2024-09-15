@@ -1,6 +1,109 @@
 .about {
   margin-top: 40px;
   display: flex;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   font-size: 18px;
+
+  a {
+    text-decoration: none;
+  }
+
+  .about-slogon {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 10px 20px;
+    background: linear-gradient(45deg, #f3ec78, #af4261);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    letter-spacing: 1px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -5px;
+      left: 50%;
+      width: 50px;
+      height: 2px;
+      background-color: #af4261;
+      transform: translateX(-50%);
+    }
+  }
+
+  .about-prods {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    max-width: 1200px;
+    width: 100%;
+    padding: 20px;
+
+    .about-prods-item {
+      background-color: #f5f5f5;
+      border-radius: 10px;
+      padding: 20px;
+      width: calc(33.33% - 20px);
+      min-width: 250px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+
+      &:hover {
+        transform: translateY(-5px);
+      }
+
+      &-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+        color: #333;
+      }
+
+      &-desc {
+        font-size: 16px;
+        color: #666;
+      }
+    }
+  }
+
+  .add-to-favorites {
+    display: block;
+    margin: 20px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    color: #ffffff;
+    background-color: #00a8ff;
+    box-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+
+    &:hover {
+      background-color: #00a8ff;
+      transform: translateY(-2px);
+    }
+
+    &:active {
+      transform: translateY(0);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .about-prods {
+      flex-direction: column;
+      align-items: center;
+
+      .about-prods-item {
+        width: 100%;
+        max-width: 400px;
+      }
+    }
+  }
 }

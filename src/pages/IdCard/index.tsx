@@ -10,6 +10,9 @@ export function IdCard() {
 
   return (
     <section className="idcard">
+      <div className="idcard-github">
+        感谢开源: <a href="https://github.com/Zeyi-Lin/HivisionIDPhotos" target="_blank">ZeYiLin/HivisionIDPhotos</a>
+      </div>
       {!loaded && (<div className="idcard-loading">
         第三方页面加载中...
         <LinearProgress indeterminate />
