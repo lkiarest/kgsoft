@@ -27,6 +27,7 @@ const ImgList: React.FC<ImgListProps> = ({ imgFiles, showDimension, imageDimensi
 
   const closeModal = () => {
     if (dialogRef.current) {
+      setPreviewSrc('')
       dialogRef.current.MDComponent.close()
     }
   }
