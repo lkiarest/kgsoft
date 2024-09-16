@@ -1,0 +1,54 @@
+.multiple-compress {
+  width: 100%;
+  text-align: center;
+  padding-top: 24px;
+
+	.compressed-info {
+		margin-top: 0;
+	}
+
+	.img-process {
+		width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+	}
+
+	.multiple-compress-process {
+		width: 800px;
+		margin: 0 auto;
+		display: flex;
+		flex-direction: row;
+	}
+}
+
+@media (max-width: 850px) {
+	.multiple-compress {
+    .multiple-compress-process {
+      width: 100%;
+      flex-direction: column;
+
+			.image-list {
+				align-items: center;
+			}
+
+			.image-item {
+				width: 90%;
+			}
+
+      .img-process {
+        width: 90%;
+        margin-left: 5%;
+        margin-bottom: 8px;
+      }
+
+      .preview-container {
+        text-align: center;
+      }
+    }
+
+		.mdc-dialog {
+			width: auto;
+		}
+  }
+}

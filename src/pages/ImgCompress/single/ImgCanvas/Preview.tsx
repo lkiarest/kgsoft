@@ -3,7 +3,7 @@ import Dialog from 'preact-material-components/Dialog'
 import 'preact-material-components/Dialog/style.css'
 
 export const Preview = (props) => {
-  const { src } = props
+  const { src, className } = props
   const dialogRef = useRef(null)
 
   const openModal = () => {
@@ -21,6 +21,7 @@ export const Preview = (props) => {
   return (
     <div className="preview-container">
       <img
+        className={className}
         src={src} 
         alt="预览图" 
         title="点击查看大图"

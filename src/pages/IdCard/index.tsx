@@ -1,12 +1,15 @@
 import LinearProgress from 'preact-material-components/LinearProgress';
 import 'preact-material-components/LinearProgress/style.css';
-import './index.less'
 import { useState } from 'preact/hooks';
+import useDocumentTitle from '../../hooks/useDocumentTitle';
+import './index.less'
 
 export function IdCard() {
   const [loaded, setLoaded] = useState(false)
 
   const frameClass = loaded ? "idcard-frame" : "idcard-frame hidden"
+
+  useDocumentTitle()
 
   return (
     <section className="idcard">

@@ -1,21 +1,9 @@
-.img-compress {
+.image-upload-wrapper {
   width: 100%;
+  position: relative;
   display: flex;
-  flex-direction: column;
   justify-content: center;
-  align-items: center;
-
-  .image-upload-wrapper {
-    width: 100%;
-    position: relative;
-    display: flex;
-    justify-content: center;
-    margin-top: 12px;
-
-    &.hide {
-      display: none;
-    }
-  }
+  margin-top: 12px;
 
   .image-upload {
     width: 100%;
@@ -46,5 +34,9 @@
   
   .image-upload-label:hover {
     color: #333;
+  }
+
+  &.hide {
+    display: none;
   }
 }

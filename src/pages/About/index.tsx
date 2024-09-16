@@ -1,6 +1,9 @@
+import useDocumentTitle from '../../hooks/useDocumentTitle';
 import './index.less'
 
 export function About() {
+	useDocumentTitle()
+
 	const addToFavorites = () => {
 		// 在这里实现添加收藏的逻辑
 		try {

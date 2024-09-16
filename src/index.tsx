@@ -2,7 +2,8 @@ import { LocationProvider, Router, Route, hydrate, prerender as ssr } from 'prea
 
 import { Header } from './components/Header';
 import { About } from './pages/About';
-import { ImgCompress } from './pages/ImgCompress';
+import { SingleImgCompress } from './pages/ImgCompress/single';
+import { MultipleImageCompress } from './pages/ImgCompress/multiple';
 import { NotFound } from './pages/_404.jsx';
 import { IdCard } from './pages/IdCard';
 import './styles/index.less';
@@ -13,7 +14,8 @@ export function App() {
       <Header />
       <main>
         <Router>
-          <Route path="/" component={ImgCompress} />
+          <Route path="/" component={SingleImgCompress} />
+          <Route path="/compress/multiple" component={MultipleImageCompress} />
           <Route path="/idcard" component={IdCard} />
           <Route path="/about" component={About} />
           <Route default component={NotFound} />

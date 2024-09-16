@@ -4,24 +4,38 @@ header {
 	align-items: center;
   box-shadow: 0 1px 2px 0 rgba(12, 0, 46, .15);
 
-	.logo {
-		font-size: 24px;
-		background: linear-gradient(to bottom,white,black); 
-		-webkit-text-fill-color: transparent;
-		background-clip: text;
-		margin-left: 12px;
+	.logo-container {
+		display: flex;
+		flex-direction: column;
+		align-items: flex-start;
+		cursor: pointer;
+
+		.logo {
+			display: flex;
+			align-items: center;
+			font-size: 20px;
+			font-weight: bold;
+			background: linear-gradient(45deg, #4a75b5, #6a5acd);
+			-webkit-background-clip: text;
+			-webkit-text-fill-color: transparent;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+
+			img {
+				margin-bottom: 0;
+			}
+		}
 	}
 }
 
 header nav {
-  margin-left: 20px;
 	display: flex;
+	flex-wrap: wrap;
 }
 
 header a {
 	font-size: 16px;
 	color: #4d4d4d;
-	padding: 0.75rem;
+	padding: 4px 8px;
 	text-decoration: none;
 }
 
@@ -35,7 +49,7 @@ header a:hover {
 
 @media (max-width: 512px) {
 	header {
-		.logo {
+		.logo-container {
 			display: none;
 		}
 	}
