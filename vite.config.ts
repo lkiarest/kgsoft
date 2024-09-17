@@ -2,7 +2,7 @@ import { defineConfig } from 'vite';
 import wasm from 'vite-plugin-wasm';
 import preact from '@preact/preset-vite';
 import topLevelAwait from 'vite-plugin-top-level-await';
-import { VitePWA } from 'vite-plugin-pwa';
+// import { VitePWA } from 'vite-plugin-pwa';
 
 // https://vitejs.dev/config/
 export default defineConfig({
@@ -21,8 +21,8 @@ export default defineConfig({
 			promiseExportName: '__tla',
 			promiseImportName: (i) => `__tla_${i}`,
 		}),
-		VitePWA({
-      registerType: 'autoUpdate',
-    })
+		// VitePWA({
+    //   registerType: 'autoUpdate',
+    // })
 	]
 });

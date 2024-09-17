@@ -25,6 +25,7 @@ export default function(props) {
   const [resizeEnabled, setResizeEnabled] = useState(false)
   const [resizeWidth, setResizeWidth] = useState(0)
   const [resizeHeight, setResizeHeight] = useState(0)
+  const [compressing, setCompressing] = useState(false)
 
   useEffect(() => {
     setImgSrc(null)
@@ -61,6 +62,7 @@ export default function(props) {
   }, [resizeEnabled, resizeWidth, imgWidth, imgHeight]);
 
   const handleCompress = useCallback(() => {
+    setCompressing(true)
     const reader = new FileReader();
     reader.onload = (e) => {
       if (e.target && e.target.result instanceof ArrayBuffer) {
@@ -71,8 +73,10 @@ export default function(props) {
         const url = URL.createObjectURL(new Blob([ret], { type: 'image/jpeg' }));
         setCompressedImg(url);
         setCompressedSize(formatSize(ret.length))
+        setCompressing(false)
       } else {
         console.error('读取文件失败');
+        setCompressing(false)
       }
     };
     reader.readAsArrayBuffer(imgFile);
@@ -96,6 +100,7 @@ export default function(props) {
               resizeHeight={resizeHeight}
               handleCompress={handleCompress}
               reselect={reselect}
+              compressing={compressing}
             />
             <div className="img-info">原图大小: {imgSize}</div>
             {compressedImg && (<div className="compressed-info"><div className="img-info">压缩后大小: {compressedSize}</div>

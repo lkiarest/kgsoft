@@ -25,6 +25,7 @@ export function MultipleImageCompress() {
 	const [compressedImgs, setCompressedImgs] = useState([]);
 	const [compressedSizes, setCompressedSizes] = useState([]);
 	const [allImagesSameSize, setAllImagesSameSize] = useState(false);
+  const [compressing, setCompressing] = useState(false)
 
 	const checkImageSizes = () => {
 		if (imgFiles.length === 0 || imageDimensions.length === 0) {
@@ -65,6 +66,7 @@ export function MultipleImageCompress() {
 	}, [resizeEnabled, imgWidth, imgHeight, resizeWidth]);
 
 	const handleCompress = () => {
+		setCompressing(true)
 		// 创建一个数组来存储压缩后的图片
 		const compressedImages: string[] = [];
 		const compressedSizes: number[] = [];
@@ -90,6 +92,7 @@ export function MultipleImageCompress() {
 				if (compressedImages.length === imgFiles.length) {
 					setCompressedImgs(compressedImages);
 					setCompressedSizes(compressedSizes);
+					setCompressing(false)
 				}
 			};
 			reader.readAsArrayBuffer(imgFile);
@@ -211,6 +214,7 @@ export function MultipleImageCompress() {
 						<div className="img-process">
 							<CompressSetting
 								rate={rate}
+								compressing={compressing}
 								setRate={setRate}
 								imgWidth={imgWidth}
 								imgHeight={imgHeight}

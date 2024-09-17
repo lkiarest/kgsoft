@@ -21,6 +21,7 @@ interface CompressSettingProps {
   resizeHeight: number;
   handleCompress: () => void;
   reselect: () => void;
+  compressing: boolean;
 }
 
 export default function CompressSetting({
@@ -35,11 +36,14 @@ export default function CompressSetting({
   setResizeWidth,
   resizeHeight,
   handleCompress,
-  reselect
+  reselect,
+  compressing
 }: CompressSettingProps) {
   const onRateChange = useCallback((e) => {
     setRate(e.detail.value);
   }, [setRate]);
+
+  const btnText = compressing ? '正在压缩' : '执行压缩'
 
   return (
     <div className="compress-setting">
@@ -66,8 +70,8 @@ export default function CompressSetting({
       </>)} 
       {!showResizeOpt && <div className="img-resize-tip">图片大小一致才能调整尺寸</div>}
       <div className="img-opts">
-        <Button raised className="mdc-theme--secondary-bg" onClick={handleCompress}>执行压缩</Button>
-        <Button onClick={reselect}>重新选择</Button>
+        <Button disabled={compressing} raised className="mdc-theme--secondary-bg" onClick={handleCompress}>{btnText}</Button>
+        <Button disabled={compressing} onClick={reselect}>重新选择</Button>
       </div>
     </div>
   );
