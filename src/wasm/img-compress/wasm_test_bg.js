@@ -225,38 +225,6 @@ export function compress_with_resize(img_buffer, length, quality, width, height)
 }
 
 /**
-* Sample position for subsampled chroma
-*/
-export const ChromaSamplePosition = Object.freeze({
-/**
-* The source video transfer function must be signaled
-* outside the AV1 bitstream.
-*/
-Unknown:0,"0":"Unknown",
-/**
-* Horizontally co-located with (0, 0) luma sample, vertically positioned
-* in the middle between two luma samples.
-*/
-Vertical:1,"1":"Vertical",
-/**
-* Co-located with (0, 0) luma sample.
-*/
-Colocated:2,"2":"Colocated", });
-/**
-* Allowed pixel value range
-*
-* C.f. `VideoFullRangeFlag` variable specified in ISO/IEC 23091-4/ITU-T H.273
-*/
-export const PixelRange = Object.freeze({
-/**
-* Studio swing representation
-*/
-Limited:0,"0":"Limited",
-/**
-* Full swing representation
-*/
-Full:1,"1":"Full", });
-/**
 * Chroma subsampling format
 */
 export const ChromaSampling = Object.freeze({
@@ -279,6 +247,38 @@ Cs400:3,"3":"Cs400", });
 /**
 */
 export const Tune = Object.freeze({ Psnr:0,"0":"Psnr",Psychovisual:1,"1":"Psychovisual", });
+/**
+* Allowed pixel value range
+*
+* C.f. `VideoFullRangeFlag` variable specified in ISO/IEC 23091-4/ITU-T H.273
+*/
+export const PixelRange = Object.freeze({
+/**
+* Studio swing representation
+*/
+Limited:0,"0":"Limited",
+/**
+* Full swing representation
+*/
+Full:1,"1":"Full", });
+/**
+* Sample position for subsampled chroma
+*/
+export const ChromaSamplePosition = Object.freeze({
+/**
+* The source video transfer function must be signaled
+* outside the AV1 bitstream.
+*/
+Unknown:0,"0":"Unknown",
+/**
+* Horizontally co-located with (0, 0) luma sample, vertically positioned
+* in the middle between two luma samples.
+*/
+Vertical:1,"1":"Vertical",
+/**
+* Co-located with (0, 0) luma sample.
+*/
+Colocated:2,"2":"Colocated", });
 
 export function __wbindgen_number_new(arg0) {
     const ret = arg0;

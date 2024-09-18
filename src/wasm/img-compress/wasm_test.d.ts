@@ -27,40 +27,6 @@ export function compress_with_quality(img_buffer: Uint8Array, length: number, qu
 */
 export function compress_with_resize(img_buffer: Uint8Array, length: number, quality: number, width?: number, height?: number): Uint8Array;
 /**
-* Sample position for subsampled chroma
-*/
-export enum ChromaSamplePosition {
-/**
-* The source video transfer function must be signaled
-* outside the AV1 bitstream.
-*/
-  Unknown = 0,
-/**
-* Horizontally co-located with (0, 0) luma sample, vertically positioned
-* in the middle between two luma samples.
-*/
-  Vertical = 1,
-/**
-* Co-located with (0, 0) luma sample.
-*/
-  Colocated = 2,
-}
-/**
-* Allowed pixel value range
-*
-* C.f. `VideoFullRangeFlag` variable specified in ISO/IEC 23091-4/ITU-T H.273
-*/
-export enum PixelRange {
-/**
-* Studio swing representation
-*/
-  Limited = 0,
-/**
-* Full swing representation
-*/
-  Full = 1,
-}
-/**
 * Chroma subsampling format
 */
 export enum ChromaSampling {
@@ -86,4 +52,38 @@ export enum ChromaSampling {
 export enum Tune {
   Psnr = 0,
   Psychovisual = 1,
+}
+/**
+* Allowed pixel value range
+*
+* C.f. `VideoFullRangeFlag` variable specified in ISO/IEC 23091-4/ITU-T H.273
+*/
+export enum PixelRange {
+/**
+* Studio swing representation
+*/
+  Limited = 0,
+/**
+* Full swing representation
+*/
+  Full = 1,
+}
+/**
+* Sample position for subsampled chroma
+*/
+export enum ChromaSamplePosition {
+/**
+* The source video transfer function must be signaled
+* outside the AV1 bitstream.
+*/
+  Unknown = 0,
+/**
+* Horizontally co-located with (0, 0) luma sample, vertically positioned
+* in the middle between two luma samples.
+*/
+  Vertical = 1,
+/**
+* Co-located with (0, 0) luma sample.
+*/
+  Colocated = 2,
 }
