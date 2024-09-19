@@ -6,11 +6,18 @@ export default (props) => {
 
   return (
     <div class={imgUploadClass}>
-      <div class="image-upload">
-        <input type="file" multiple={multiple} id="image-upload-input" accept="image/*" style="display: none;" onChange={onChange} />
-        <label for="image-upload-input" class="image-upload-label">
-          选择图片文件
+      <div className="upload-section">
+        <label htmlFor="image-upload-input" className="custom-upload-button">
+          选择图片
         </label>
+        <input
+          id="image-upload-input"
+          type="file"
+          multiple={multiple}
+          accept="image/*"
+          onChange={onChange}
+          className="file-input"
+        />
       </div>
     </div>
   )

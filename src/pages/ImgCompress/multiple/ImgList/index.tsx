@@ -1,6 +1,5 @@
 import { useRef, useState } from 'preact/hooks';
 import { formatSize } from '../../../../utils/img';
-import { Preview } from '../../single/ImgCanvas/Preview';
 import Dialog from 'preact-material-components/Dialog';
 import './style.less';
 
