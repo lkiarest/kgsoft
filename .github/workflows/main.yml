@@ -31,6 +31,12 @@ jobs:
           cd dist
           zip -r ${{ github.workspace }}/kgsoft-build.zip .
 
+      - name: Print environment variables for debugging
+        run: |
+          echo "USER: ${{ secrets.USERNAME }}"
+          echo "HOST: ${{ secrets.HOST }}"
+          echo "DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}"
+
       - name: Set up SSH Key
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
