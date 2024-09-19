@@ -60,7 +60,7 @@ jobs:
           USER: ${{ secrets.USERNAME }}
           DEPLOY_SCRIPT_PATH: ${{ secrets.DEPLOY_SCRIPT_PATH }}
         run: |
-          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} "bash -s" < ${{ secrets.DEPLOY_SCRIPT_PATH }}
+          ssh ${{ secrets.USERNAME }}@${{ secrets.HOST }} 'bash ${{ secrets.DEPLOY_SCRIPT_PATH }}'
       
       - name: Upload release asset
         uses: svenstaro/upload-release-action@v2
