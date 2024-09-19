@@ -39,13 +39,12 @@ jobs:
 
       - name: Set up SSH Key
         env:
-          HOST: ${{ secrets.HOST }}
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
         run: |
           mkdir -p ~/.ssh
           echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H ${HOST} >> ~/.ssh/known_hosts
+          ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
 
       - name: Deploy to Oracle Cloud Server
         env:
@@ -53,7 +52,7 @@ jobs:
           USER: ${{ secrets.USERNAME }}
           DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
         run: |
-          rsync -avz . "${USER}@${HOST}:${DEPLOY_PATH}"
+          scp -r ${{ github.workspace }}/kgsoft-build.zip ${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.DEPLOY_PATH }}
 
       - name: Upload release asset
         uses: svenstaro/upload-release-action@v2
