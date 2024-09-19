@@ -30,6 +30,23 @@ jobs:
           cd dist
           zip -r ${{ github.workspace }}/kgsoft-build.zip .
 
+      - name: Set up SSH Key
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy to Oracle Cloud Server
+        env:
+          HOST: ${{ secrets.HOST }}
+          USER: ${{ secrets.USERNAME }}
+          DEPLOY_PATH: ${{ secrets.DEPLOY_PATH }}
+        run: |
+          scp -r . ${{ secrets.USERNAME }}@${{ secrets.HOST }}:${{ secrets.DEPLOY_PATH }}
+
       - name: Upload release asset
         uses: svenstaro/upload-release-action@v2
         with:
@@ -40,3 +57,5 @@ jobs:
           body: "Automated release of the frontend build."
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      
