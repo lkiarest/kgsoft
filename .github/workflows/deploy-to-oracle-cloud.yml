@@ -3,7 +3,7 @@ name: Deploy to Oracle Cloud via SCP
 on:
   release:
     types: [published]
-
+  workflow_dispatch:
 jobs:
   deploy:
     runs-on: ubuntu-latest
