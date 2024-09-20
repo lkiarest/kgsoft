@@ -4,8 +4,8 @@ import ImgSelector from '../../../components/ImgSelector';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import CompressSetting from '../../../components/CompressSetting';
 import ImgList from './ImgList';
-import * as wasm from "../../../wasm/img-compress/wasm_test";
-import { formatSize } from '../../../utils/img';
+import useWasm from '../../../hooks/useWasm';
+import LoadingMask from '../../../components/LoadingMask';
 import 'preact-material-components/Button/style.css';
 import 'preact-material-components/Theme/style.css';
 import 'preact-material-components/Slider/style.css';
@@ -26,6 +26,7 @@ export function MultipleImageCompress() {
 	const [compressedSizes, setCompressedSizes] = useState([]);
 	const [allImagesSameSize, setAllImagesSameSize] = useState(false);
   const [compressing, setCompressing] = useState(false)
+	const [wasm] = useWasm()
 
 	const checkImageSizes = () => {
 		if (imgFiles.length === 0 || imageDimensions.length === 0) {
@@ -207,6 +208,7 @@ export function MultipleImageCompress() {
 
 	return (
 		<div className="multiple-compress">
+      {!wasm && <LoadingMask />}
 			<ImgSelector multiple={true} hidden={imgFiles && imgFiles.length > 0} onChange={onFileChange} />
 			<div className="multiple-compress-process">
 				{imgFiles && imgFiles.length > 0 && (

@@ -1,6 +1,5 @@
 .img-canvas {
   width: 800px;
-  text-align: center;
   padding-top: 24px;
   display: flex;
   flex-direction: row;
@@ -16,19 +15,14 @@
     }
   }
 
-  .img-info {
-    margin-bottom: 4px;
+  .original-size {
+    background-color: #e8f5e9;
+    padding: 4px 16px;
+    margin-top: 8px;
+    border-radius: 8px;
     font-size: 14px;
     text-align: left;
     font-weight: 600;
-
-    &.adjust-size {
-      margin: 8px 0;
-    }
-
-    .mdc-switch {
-      margin: 0 8px;
-    }
   }
 
   .img-cancel {
@@ -44,17 +38,11 @@
   }
 
   .img-process {
-    width: 200px;
+    width: 220px;
+    margin-right: 12px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-  }
-
-  .img-opts {
-    margin-top: 12px;
-    button {
-      margin-right: 8px;
-    }
   }
 
   .img-compress-result {
@@ -76,15 +64,6 @@
       color: #fff;
     }
   }
-
-  .compressed-info {
-    margin-top: 12px;
-  }
-
-  .resize-slider {
-    width: 100%;
-    margin-top: 12px;
-  }
 }
 
 @media (max-width: 850px) {
@@ -94,9 +73,8 @@
       flex-direction: column;
 
       .img-process {
-        width: 90%;
-        margin-left: 5%;
-        margin-bottom: 8px;
+        width: 96%;
+        margin: 0 0 8px 2%;
       }
 
       .preview-container {

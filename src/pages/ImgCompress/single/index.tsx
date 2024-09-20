@@ -2,10 +2,14 @@ import { useState, useCallback, useRef } from 'preact/hooks'
 import ImgCanvas from './ImgCanvas';
 import useDocumentTitle from '../../../hooks/useDocumentTitle';
 import ImgSelector from '../../../components/ImgSelector';
+import LoadingMask from '../../../components/LoadingMask';
+import useWasm from '../../../hooks/useWasm';
 import './style.less';
 
 export function SingleImgCompress() {
   const [imgFile, setImgFile] = useState(null)
+
+  const [wasm] = useWasm()
 
   useDocumentTitle()
 
@@ -22,6 +26,7 @@ export function SingleImgCompress() {
 
 	return (
 		<div class="img-compress">
+      {!wasm && <LoadingMask />}
       <ImgSelector multiple={false} hidden={!!imgFile} onChange={onFileChange} />
       {imgFile && <ImgCanvas imgFile={imgFile} reselect={handleReselect} />}
 		</div>

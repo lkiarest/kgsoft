@@ -60,7 +60,7 @@ export function Matting() {
   }
 
   return (
-    <div className="idcard-container">
+    <div className="matting-container">
       <div className="upload-section">
         <label htmlFor="file-upload" className={`custom-upload-button ${isLoading ? 'disabled' : ''}`}>
           选择图片

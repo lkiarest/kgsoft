@@ -1,16 +1,12 @@
 import { useCallback, useEffect, useState } from 'preact/hooks'
-import { ChangeEvent } from 'preact/compat';
-import Slider from 'preact-material-components/Slider';
 import Button from 'preact-material-components/Button';
-import Switch from 'preact-material-components/Switch';
 import { Preview } from './Preview';
 import CompressSetting from '../../../../components/CompressSetting';
 import { formatSize } from '../../../../utils/img'
-import * as wasm from "../../../../wasm/img-compress/wasm_test";
 import 'preact-material-components/Button/style.css';
 import 'preact-material-components/Theme/style.css';
-import 'preact-material-components/Slider/style.css';
-import 'preact-material-components/Switch/style.css';
+import useWasm from '../../../../hooks/useWasm';
+import LoadingMask from '../../../../components/LoadingMask';
 import './index.less'
 
 export default function(props) {
@@ -26,6 +22,8 @@ export default function(props) {
   const [resizeWidth, setResizeWidth] = useState(0)
   const [resizeHeight, setResizeHeight] = useState(0)
   const [compressing, setCompressing] = useState(false)
+
+  const [wasm] = useWasm()
 
   useEffect(() => {
     setImgSrc(null)
@@ -102,11 +100,11 @@ export default function(props) {
               reselect={reselect}
               compressing={compressing}
             />
-            <div className="img-info">原图大小: {imgSize}</div>
-            {compressedImg && (<div className="compressed-info"><div className="img-info">压缩后大小: {compressedSize}</div>
+            <div className="original-size">原图大小: {imgSize}</div>
+            {compressedImg && (<div className="compressed-info"><div className="compressed-size">压缩后大小: {compressedSize}</div>
               <div className="img-compress-btns">
                 <Button raised className="mdc-theme--secondary-bg">
-                  <a target="_blank" href={compressedImg} download={`${imgFile.name.replace(/\.[^/.]+$/, "")}_compressed.jpg`}>下载图片</a>
+                  <a target="_blank" href={compressedImg} download={`${imgFile.name.replace(/\.[^/.]+$/, "")}_compressed.jpg`}>下载</a>
                 </Button>
                 <Button onClick={() => setCompressedImg(null)}>撤销</Button>
               </div>

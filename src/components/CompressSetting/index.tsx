@@ -43,7 +43,7 @@ export default function CompressSetting({
     setRate(e.detail.value);
   }, [setRate]);
 
-  const btnText = compressing ? '正在压缩' : '执行压缩'
+  const btnText = compressing ? '压缩中' : '压缩'
 
   return (
     <div className="compress-setting">
@@ -54,8 +54,8 @@ export default function CompressSetting({
         <div className="img-info adjust-size">
           <span>尺寸调整:</span>
           <Switch checked={resizeEnabled} onChange={(e: ChangeEvent<HTMLInputElement>) => setResizeEnabled(e.currentTarget.checked)} />
-          {resizeEnabled && <span style="margin-right: 8px;">{resizeWidth}x{resizeHeight}</span>}
         </div>
+        {resizeEnabled && <div className="img-info">{resizeWidth}x{resizeHeight}</div>}
         {resizeEnabled && (
           <div className="resize-slider">
             <Slider
@@ -71,7 +71,7 @@ export default function CompressSetting({
       {!showResizeOpt && <div className="img-resize-tip">图片大小一致才能调整尺寸</div>}
       <div className="img-opts">
         <Button disabled={compressing} raised className="mdc-theme--secondary-bg" onClick={handleCompress}>{btnText}</Button>
-        <Button disabled={compressing} onClick={reselect}>重新选择</Button>
+        <Button disabled={compressing} onClick={reselect}>重选</Button>
       </div>
     </div>
   );
