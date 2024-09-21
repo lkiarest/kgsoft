@@ -1,14 +1,18 @@
-.matting-container {
-  display: flex;
-  justify-content: space-between;
-  padding: 20px;
+.matting-page {
   max-width: 1200px;
   margin: 0 auto;
-  gap: 8px;
+  padding: 20px;
+  display: flex;
+  gap: 20px;
+  
+  @media (max-width: 768px) {
+    flex-direction: column;
+    padding: 12px;
+  }
 
   .upload-section,
   .result-section {
-    width: 48%;
+    flex: 1;
     background-color: #ffffff;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -18,121 +22,145 @@
     align-items: center;
   }
 
-  .custom-upload-button.disabled {
-    background-color: #ccc;
-    cursor: not-allowed;
+  .upload-section {
+    flex: 0 0 40%; // 固定宽度为40%
+    min-width: 300px; // 设置最小宽度
   }
 
-  .file-input {
-    display: none;
+  .result-section {
+    flex: 1; // 剩余空间
+    overflow: hidden; // 防止内容溢出
   }
 
-  .custom-upload-button,
-  .download-button {
+  .file-upload {
+    width: 100%;
+    height: 200px;
+    border: 2px dashed #4CAF50;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+
+    &:hover {
+      background-color: #f0f8ff;
+    }
+
+    label {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(76, 175, 80, 0.1);
+      border-radius: 8px;
+      cursor: pointer;
+      transition: background-color 0.3s;
+
+      &:hover {
+        background-color: rgba(76, 175, 80, 0.2);
+      }
+    }
+
+    .upload-icon {
+      font-size: 48px;
+      color: #4CAF50;
+      margin-bottom: 10px;
+    }
+
+    .upload-text {
+      font-size: 16px;
+      color: #333;
+    }
+
+    input[type="file"] {
+      display: none;
+    }
+  }
+
+  .preview-image {
+    max-width: 100%;
+    max-height: 300px;
+    margin-top: 20px;
+    border-radius: 5px;
+  }
+
+  .mdc-button {
+    margin-top: 20px;
     background-color: #4CAF50;
     color: white;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-    transition: background-color 0.3s;
-  
-    &:hover:not(.disabled) {
+
+    &:hover {
       background-color: #45a049;
     }
   }
 
-  .preview-image,
-  .result-image {
-    max-width: 100%;
-    max-height: 400px;
-    margin-top: 20px;
-    border-radius: 5px;
-  }
-
   .loading {
+    display: flex;
+    align-items: center;
     font-size: 18px;
     color: #666;
     margin-top: 20px;
-  }
 
-  .no-result {
-    font-size: 18px;
-    color: #666;
-    margin-top: 20px;
+    .loading-spinner {
+      width: 20px;
+      height: 20px;
+      border: 2px solid #f3f3f3;
+      border-top: 2px solid #3498db;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      margin-right: 10px;
+    }
+
+    @keyframes spin {
+      0% { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
   }
 
   .action-buttons {
     display: flex;
     gap: 10px;
+    margin-top: 20px;
 
-    .download-button,
-    .view-button {
-      padding: 10px 20px;
-      border: 1px solid transparent;
-      border-radius: 5px;
-      cursor: pointer;
-      font-size: 16px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-    }
-
-    .download-button {
-      background-color: #2196F3;
-      color: white;
-
-      &:hover {
-        background-color: #1976D2;
-      }
-    }
-
-    .view-button {
-      background-color: #FF9800;
-      color: white;
-
-      &:hover {
-        background-color: #F57C00;
-      }
+    .mdc-button {
+      margin-top: 0;
     }
   }
 
+  .result-image {
+    max-width: 100%;
+    margin-top: 20px;
+    height: auto;
+    object-fit: contain;
+    border: 1px dashed #999;
+  }
+
   @media (max-width: 768px) {
-    & {
+    .upload-section,
+    .result-section {
       width: 100%;
-      padding: 12px 0 0 0;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex: none;
     }
 
-    .upload-section, .result-section {
-      width: 100%;
-      padding: 8px 12px;
-      box-sizing: border-box;
-    }
-
-    .custom-upload-button {
-      width: 90%;
+    .file-upload {
+      height: 150px;
     }
 
     .action-buttons {
       flex-direction: column;
-      gap: 5px;
-
-      .download-button,
-      .view-button {
-        width: 100%;
-        font-size: 14px;
-      }
-    }
-
-    .preview-image {
       width: 100%;
-      margin-top: 10px;
-    }
 
-    .result-section {
-      margin-top: 8px;
+      .mdc-button {
+        width: 100%;
+      }
     }
   }
 }

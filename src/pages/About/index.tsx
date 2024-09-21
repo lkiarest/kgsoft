@@ -30,7 +30,7 @@ export function About() {
 				<div className="about-prods-item">
 					<h2 class="about-prods-item-title">证件照生成</h2>
 					<div class="about-prods-item-desc">
-						直接嵌入的<a href="https://swanhub.co/ZeYiLin/HivisionIDPhotos/demo" target="_blank">三方开源项目</a>，感谢作者。
+						基于<a href="https://github.com/Zeyi-Lin/HivisionIDPhotos" target="_blank">三方开源项目</a>，感谢作者。
 					</div>
 				</div>
 				<div className="about-prods-item">

@@ -1,8 +1,13 @@
 import { useRef, useState } from 'preact/hooks';
 import useDocumentTitle from '../../hooks/useDocumentTitle';
-import { generateIdPhoto } from './api/hivision';
+import { generateMatting } from '../../api/hivision';
 import Dialog from 'preact-material-components/Dialog';
+import Button from 'preact-material-components/Button';
 import './index.less'
+
+import 'preact-material-components/Button/style.css';
+import 'preact-material-components/Dialog/style.css';
+import 'preact-material-components/Theme/style.css';
 
 export function Matting() {
   useDocumentTitle()
@@ -10,14 +15,20 @@ export function Matting() {
   const [processedImage, setProcessedImage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const dialogRef = useRef(null);
+  const [previewImage, setPreviewImage] = useState(null);
 
   const handleImageUpload = async (event) => {
     const file = event.target.files[0];
     if (file) {
       setIsLoading(true);
       setOriginalImage(URL.createObjectURL(file));
+      const reader = new FileReader();
+      reader.onload = (e) => {
+        setPreviewImage(e.target.result);
+      };
+      reader.readAsDataURL(file);
       try {
-        const result = await generateIdPhoto(file, 413, 295);
+        const result = await generateMatting(file, 413, 295);
         if (result.status) {
           setProcessedImage(result.image_base64);
         } else {
@@ -59,22 +70,32 @@ export function Matting() {
     }
   }
 
+  const handleReupload = () => {
+    setOriginalImage(null);
+    setPreviewImage(null);
+    setProcessedImage(null);
+  };
+
   return (
-    <div className="matting-container">
+    <div className="matting-page">
       <div className="upload-section">
-        <label htmlFor="file-upload" className={`custom-upload-button ${isLoading ? 'disabled' : ''}`}>
-          选择图片
-        </label>
-        <input
-          id="file-upload"
-          type="file"
-          accept="image/*"
-          onChange={handleImageUpload}
-          className="file-input"
-          disabled={isLoading}
-        />
         {originalImage && (
-          <img src={originalImage} alt="原图" className="preview-image" />
+          <>
+            <Button raised disabled={isLoading} onClick={handleReupload}>重新上传</Button>
+          </>
+        )}
+        {!originalImage ? (
+          <div className="file-upload">
+            <input type="file" accept="image/*" onChange={handleImageUpload} id="file-input" />
+            <label htmlFor="file-input">
+              <div className="upload-icon">📁</div>
+              <div className="upload-text">点击或拖拽上传图片</div>
+            </label>
+          </div>
+        ) : (
+          <div className="preview-image">
+            <img src={previewImage} alt="预览图" style={{ maxWidth: '100%', maxHeight: '200px' }} />
+          </div>
         )}
       </div>
       <div className="result-section">
@@ -86,9 +107,9 @@ export function Matting() {
         ) : processedImage ? (
           <>
             <div className="action-buttons">
-              <button onClick={handleDownload} className="download-button">
+              <Button raised onClick={handleDownload}>
                 下载结果
-              </button>
+              </Button>
               <Dialog ref={dialogRef}>
                 <Dialog.Body>
                   <img src={processedImage} alt="大图" style={{ maxWidth: '100%' }} />
