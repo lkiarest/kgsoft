@@ -79,19 +79,17 @@
     font-size: 16px;
     color: #ffffff;
     background-color: #00a8ff;
-    box-shadow: 0 0 10px rgba(0, 168, 255, 0.5);
     border: none;
     border-radius: 5px;
     cursor: pointer;
     transition: background-color 0.3s ease, transform 0.2s ease;
 
     &:hover {
-      background-color: #00a8ff;
-      transform: translateY(-2px);
+      background-color: #0095e0;
     }
 
     &:active {
-      transform: translateY(0);
+      transform: translateY(2px);
     }
   }
 
@@ -109,11 +107,25 @@
 }
 
 @media (max-width: 850px) {
-  .about .about-prods {
-    width: 80%;
-
-    .about-prods-item {
+  .about {
+    .about-prods {
       width: 90%;
+      padding: 10px;
+
+      .about-prods-item {
+        width: 100%;
+        min-width: auto;
+      }
+    }
+
+    .about-slogon {
+      font-size: 20px;
+      padding: 5px 10px;
+    }
+
+    .add-to-favorites {
+      font-size: 14px;
+      padding: 8px 16px;
     }
   }
 }

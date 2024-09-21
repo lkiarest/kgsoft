@@ -177,7 +177,7 @@ export const IdCard = () => {
                 style={{ marginBottom: '10px', width: '100%', padding: '5px' }}
               >
                 {photoSizes.map((size) => (
-                  <option key={size.value} value={size.value}>
+                  <option key={size.value + size.label} value={size.value}>
                     {size.label} ({size.value})
                   </option>
                 ))}
