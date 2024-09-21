@@ -14,7 +14,7 @@ export const IdCard = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [selectedSize, setSelectedSize] = useState(photoSizes[0].value);
   const [generatedPhoto, setGeneratedPhoto] = useState({ hd: null, standard: null });
-  const [backgroundColor, setBackgroundColor] = useState(backgroundColors[0]);
+  const [backgroundColor, setBackgroundColor] = useState(null);
   const [isGenerating, setIsGenerating] = useState(false);
   const [previewImage, setPreviewImage] = useState(null);
   const mergedPhotoRef = useRef({ hd: null, standard: null });
