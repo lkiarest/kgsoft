@@ -21,6 +21,9 @@ export function Header() {
         <a href="/compress/multiple" class={url == '/compress/multiple' && 'active'}>
           批量压缩
         </a>
+        {/* <a href="/rmbg" class={url == '/rmbg' && 'active'}>
+          本地抠图
+        </a> */}
         <a href="/matting" class={url == '/matting' && 'active'}>
           人像抠图
         </a>

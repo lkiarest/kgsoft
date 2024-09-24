@@ -1,0 +1,30 @@
+{
+    "per_channel": false,
+    "reduce_range": false,
+    "per_model_config": {
+        "model": {
+            "op_types": [
+                "Sigmoid",
+                "Constant",
+                "Resize",
+                "Gather",
+                "MatMul",
+                "Clip",
+                "BatchNormalization",
+                "Concat",
+                "Conv",
+                "GlobalAveragePool",
+                "Expand",
+                "Add",
+                "Slice",
+                "Shape",
+                "Unsqueeze",
+                "Reshape",
+                "InstanceNormalization",
+                "Relu",
+                "Mul"
+            ],
+            "weight_type": "QUInt8"
+        }
+    }
+}

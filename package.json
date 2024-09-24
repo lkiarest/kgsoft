@@ -7,6 +7,8 @@
 		"preview": "vite preview"
 	},
 	"dependencies": {
+		"@huggingface/transformers": "github:xenova/transformers.js#v3",
+		"@xenova/transformers": "^2.17.2",
 		"less": "^4.2.0",
 		"preact": "^10.22.1",
 		"preact-iso": "^2.6.3",

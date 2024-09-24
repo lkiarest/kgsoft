@@ -7,6 +7,7 @@ import { MultipleImageCompress } from './pages/ImgCompress/multiple';
 import { NotFound } from './pages/_404.jsx';
 import { IdCard } from './pages/IdCard';
 import { Matting } from './pages/Matting';
+import { Rmbg } from './pages/Rmbg';
 import './styles/index.less';
 
 export function App() {
@@ -19,6 +20,7 @@ export function App() {
           <Route path="/compress/multiple" component={MultipleImageCompress} />
           <Route path="/idcard" component={IdCard} />
           <Route path="/matting" component={Matting} />
+          <Route path="/rmbg" component={Rmbg} />
           <Route path="/about" component={About} />
           <Route default component={NotFound} />
         </Router>
