@@ -1,7 +1,10 @@
 ## 在线图片处理工具
 一些常用的图片处理功能，其中图片压缩基于 rust 的 wasm 模块在本地执行，只需要一个静态服务器防止前端页面文件即可，人像和证件照相关处理基于开源项目 [HivisionIDPhotos](https://github.com/Zeyi-Lin/HivisionIDPhotos)，需要参考 HivisionIDPhotos 项目部署后端接口服务.
 
-Demo 地址： [https://kgsoft.cn](https://kgsoft.cn)。
+Demo 地址：
+- 图片压缩 [https://kgsoft.cn](https://kgsoft.cn)。
+- 人像抠图（[https://kgsoft.cn/matting](https://kgsoft.cn/matting)）
+- 证件照生成（[https://kgsoft.cn/idcard](https://kgsoft.cn/idcard)）
 
 接口服务器比较拉，建议不要频繁请求。
 
