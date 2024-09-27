@@ -2,8 +2,6 @@ const useOthers = true
 
 const BASE_URI = 'https://ai.kgsoft.cn'
 
-// const WENZI_URI = 'https://api.photo.icuzz.com' // 'https://wx.0po.cn'
-
 const APIS = useOthers ? {
   matting: `${BASE_URI}/human_matting`,
   id_photo: `${BASE_URI}/idphoto`,
