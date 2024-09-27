@@ -16,3 +16,16 @@ Demo 地址：
 - 批量图片压缩（客户端压缩）
 - 人像抠图 （基于 https://github.com/Zeyi-Lin/HivisionIDPhotos)
 - 证件照生成 （基于 https://github.com/Zeyi-Lin/HivisionIDPhotos)
+
+## 本地测试
+使用下面的命令启动服务后访问控制台提示的本地地址即可：
+```
+npm install
+npm run dev
+```
+
+## 部署发布
+使用下面的命令打包后将 dist 目录中的文件部署到静态服务器即可：
+```
+npm run build
+```
