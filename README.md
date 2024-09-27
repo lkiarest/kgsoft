@@ -4,8 +4,16 @@
 Demo 地址：
 - 图片压缩 [https://kgsoft.cn](https://kgsoft.cn)。
 - 批量压缩 [https://kgsoft.cn/compress/multiple](https://kgsoft.cn/compress/multiple)
+
+  [<img src="public/test-comp.jpg" width="400" alt="kgsoft.cn">](https://kgsoft.cn)
+
 - 人像抠图 [https://kgsoft.cn/matting](https://kgsoft.cn/matting)
+
+  [<img src="public/matting.jpg" width="400" alt="kgsoft.cn">](https://kgsoft.cn)
+
 - 证件照生成 [https://kgsoft.cn/idcard](https://kgsoft.cn/idcard)
+  
+  [<img src="public/test-idcard.jpg" width="400" alt="kgsoft.cn">](https://kgsoft.cn)
 
 接口服务器比较拉，建议不要频繁请求。
 
