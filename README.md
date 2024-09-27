@@ -3,19 +3,21 @@
 
 Demo 地址：
 - 图片压缩 [https://kgsoft.cn](https://kgsoft.cn)。
-- 人像抠图（[https://kgsoft.cn/matting](https://kgsoft.cn/matting)）
-- 证件照生成（[https://kgsoft.cn/idcard](https://kgsoft.cn/idcard)）
+- 批量压缩 [https://kgsoft.cn/compress/multiple](https://kgsoft.cn/compress/multiple)
+- 人像抠图 [https://kgsoft.cn/matting](https://kgsoft.cn/matting)
+- 证件照生成 [https://kgsoft.cn/idcard](https://kgsoft.cn/idcard)
 
 接口服务器比较拉，建议不要频繁请求。
 
 ## TODO
-基于 tensorflowjs 的前端人像抠图方案。
+- 基于 tensorflowjs 的前端人像抠图方案。
+- 图片格式转换（本地）
 
 ## 包含以下功能
 - 单张图片压缩（客户端压缩）
 - 批量图片压缩（客户端压缩）
-- 人像抠图 （基于 https://github.com/Zeyi-Lin/HivisionIDPhotos)
-- 证件照生成 （基于 https://github.com/Zeyi-Lin/HivisionIDPhotos)
+- 人像抠图
+- 证件照生成
 
 ## 本地测试
 使用下面的命令启动服务后访问控制台提示的本地地址即可：
